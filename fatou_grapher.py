@@ -217,18 +217,18 @@ def save_mandelbrot_to_file(name):
     print("Finished!")
 
 # Graphs a fatou or mandelbrot set.
-def graph_fatou(name, color='red', xs = [], ys = []):
+def graph_fatou(name='Mandelbrot Set', color='red', xs = [], ys = []):
     if len(xs) == 0:
         df = pd.read_csv(f'{name}.csv')
         xs = df["X"].to_list()
         ys = df["Y"].to_list()
-    plt.scatter(xs, ys, label=f"Points in the {name} Set", c=color, s=10)
-    plt.title("The Mandelbrot Set")
+    plt.scatter(xs, ys, label=f"Points in the {name} Set", c=color, s=5)
+    plt.title(f"Fatou Set: {name}")
     plt.tight_layout()
     plt.legend()
     plt.show()
 
-z_val = Complex_Number(0, 0)
+z_val = Complex_Number(-.12, .77)
 
 '''
 z_val = Complex_Number(-.12, .77)
@@ -242,4 +242,4 @@ save_fatou_to_file(z_val.str_out())
 
 '''
 
-graph_fatou(z_val.str_out())
+graph_fatou('Mandelbrot Set', 'green')
