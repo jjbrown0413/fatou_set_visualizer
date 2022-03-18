@@ -35,3 +35,9 @@ f(z) = z^2 + -0.63 + 0.44i
 Along with this is the titular Mandelbrot set. To generate this set, the initial z value is fixed at zero. The complex function followed is f(z) = z^2 + c, where each coordinate point is plugged in as c and run recursively. If the sequence remains bounded, the point is displayed.
 
 Included with the file is a class representing a complex number. This library allows you to easily take the sine, cosine, tangent, conjugate, and inverse of a given complex number, as well as general arithmetic and exponentiation. The library allows for the easy creation of complex functions. In the program, the comp_func() function is the Riemann Zeta function.
+
+Below is the Mandelbrot Set and my favorite Fatou Set.
+
+![Mandelbrot Set](https://user-images.githubusercontent.com/28418992/159028980-ad88e15d-1456-4b17-a304-dba110998db4.png)
+
+![- 63 + 0 44i Set](https://user-images.githubusercontent.com/28418992/159029012-411b3f81-865d-475e-aede-8cb609053479.png)
