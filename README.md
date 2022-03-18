@@ -1,6 +1,7 @@
 # Fatou Set Visualizer
 
-** NOTE: Please look at the 'set_images' folder for images of the Fatou sets! **
+**NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
+
 Uses the Matplotlib python library and custom complex number functionality to graph the Fatou set of a general complex function.
 
 The **Fatou set** of a complex function is the set of all complex numbers for which, when the function is applied to the value recursively, it remains bounded. Say the function being studied is f(z) = z^2. Say we start with the number 1.
