@@ -196,12 +196,12 @@ def save_mandelbrot_to_file(name):
     save_file.close()
     print("Finished!")
 
-def graph_fatou(name, xs = [], ys = []):
+def graph_fatou(name, color='red', xs = [], ys = []):
     if len(xs) == 0:
         df = pd.read_csv(f'{name}.csv')
         xs = df["X"].to_list()
         ys = df["Y"].to_list()
-    plt.scatter(xs, ys, label=f"Points in the {name} Set", s=10)
+    plt.scatter(xs, ys, label=f"Points in the {name} Set", c=color, s=10)
     plt.title("The Mandelbrot Set")
     plt.tight_layout()
     plt.legend()
