@@ -1,6 +1,6 @@
 # Fatou Set Visualizer
 
-**![Uploading -0.63 + 0.44i Set.png…]()
+![-0 63 + 0 44i Set](https://user-images.githubusercontent.com/28418992/159311341-734b0d46-ab1f-42d1-8a40-9d31e90cfdf3.png)
 
 NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
 
