@@ -1,6 +1,8 @@
 # Fatou Set Visualizer
 
-**NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
+**![Uploading -0.63 + 0.44i Set.png…]()
+
+NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
 
 Uses the Matplotlib python library and custom complex number functionality to graph the Fatou set of a general complex function.
 
