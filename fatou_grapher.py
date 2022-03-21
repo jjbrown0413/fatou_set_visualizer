@@ -204,10 +204,9 @@ def save_mandelbrot_to_file(name):
         while theta < (2 * math.pi):
             num = euler_to_comp(r, theta)
             res = test_mandelbrot(num)
-            if res[0]:
-                save_file.write(f"{num.real},{num.im},{res[1]}\n")
-                if r == 0:
-                    theta = 2 * math.pi
+            save_file.write(f"{num.real},{num.im},{res[1]}\n")
+            if r == 0:
+                theta = 2 * math.pi
             theta += 0.005
         theta = 0
         r += 0.005
@@ -227,6 +226,7 @@ def graph_fatou(name='Mandelbrot Set', color='red', xs = [], ys = []):
     plt.title(f"Fatou Set: {name}")
     plt.tight_layout()
     plt.legend()
+    plt.plot()
     plt.savefig(f'{name} Set.png')
 
 
@@ -243,6 +243,6 @@ save_fatou_to_file(z_val.str_out())
 
 '''
 
-z_val = Complex_Number(-.63, .44)
+z_val = Complex_Number(0.5, 1)
 save_fatou_to_file(z_val.str_out())
 graph_fatou(z_val.str_out(), 'black')
