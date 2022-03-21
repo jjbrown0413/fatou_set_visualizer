@@ -226,9 +226,9 @@ def graph_fatou(name='Mandelbrot Set', color='red', xs = [], ys = []):
     plt.title(f"Fatou Set: {name}")
     plt.tight_layout()
     plt.legend()
-    plt.show()
+    plt.savefig(f'{name} Set.png')
 
-z_val = Complex_Number(-.12, .77)
+
 
 '''
 z_val = Complex_Number(-.12, .77)
@@ -242,4 +242,9 @@ save_fatou_to_file(z_val.str_out())
 
 '''
 
-graph_fatou('Mandelbrot Set', 'green')
+z_val = Complex_Number(-1, 0)
+
+while z_val.real <= 0.1:
+    save_fatou_to_file(z_val.str_out())
+    graph_fatou(z_val.str_out(), 'green')
+    z_val.real += 0.1
