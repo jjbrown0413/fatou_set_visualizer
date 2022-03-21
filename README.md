@@ -4,7 +4,7 @@
 
 ![ColoredMandelbrotSet Set](https://user-images.githubusercontent.com/28418992/159369006-1efac2d1-1471-4d96-91ab-60ad983327f6.png)
 
-NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
+**NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
 
 Uses the Matplotlib python library and custom complex number functionality to graph the Fatou set of a general complex function.
 
