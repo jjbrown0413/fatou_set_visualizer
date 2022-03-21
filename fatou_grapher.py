@@ -243,6 +243,6 @@ save_fatou_to_file(z_val.str_out())
 
 '''
 
-z_val = Complex_Number(-1, 0)
+z_val = Complex_Number(-.63, .44)
 save_fatou_to_file(z_val.str_out())
 graph_fatou(z_val.str_out(), 'black')
