@@ -2,6 +2,7 @@ import os
 import math
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 # Sets my favorite graph style.
 plt.style.use("seaborn-notebook")
@@ -146,13 +147,13 @@ def test_fatou(c, z_to_test = Complex_Number(0, 0)):
     reps = 0
     func = lambda z, c: z * z + c
     z = func(z_to_test, c)
-    while reps < 50:
+    while reps < 99:
         z = func(z, c)
         if z.is_pole():
-            return False
+            return (False, reps)
         reps += 1
     
-    return True
+    return (True, 0)
 
 # Tests if a certain z value is within the mandelbrot set.
 def test_mandelbrot(c):
@@ -160,29 +161,30 @@ def test_mandelbrot(c):
     reps = 0
     func = lambda z, c: z * z + c
     z = func(Complex_Number(0, 0), c)
-    while reps < 50:
+    while reps < 75:
         z = func(z, c)
         if z.is_pole():
-            return False
+            return (False, reps)
         reps += 1
     
-    return True
+    return (True, 0)
 
 # Saves a collection of all points within the fatou set of a certain function to a file.
 def save_fatou_to_file(name):
     save_file = open(f"{name}.csv", "w") 
-    save_file.write("X,Y\n")
-    xs = []
-    ys = []
+    save_file.write("X,Y,C\n")
     r = 0
     theta = 0
     while r < 2:
         while theta < (2 * math.pi):
             num = euler_to_comp(r, theta)
-            if test_fatou(z_val, num):
-                save_file.write(f"{num.real},{num.im}\n")
-                xs.append(num.real)
-                ys.append(num.im)
+            res = test_fatou(z_val, num)
+            if res[0]:
+                save_file.write(f"{num.real},{num.im},{res[1]}\n")
+                if r == 0:
+                    theta = 2 * math.pi
+            else:
+                save_file.write(f"{num.real},{num.im},{res[1]}\n")
                 if r == 0:
                     theta = 2 * math.pi
             theta += 0.005
@@ -195,18 +197,15 @@ def save_fatou_to_file(name):
 # Save a collection of all points within the mandelbrot set.
 def save_mandelbrot_to_file(name):
     save_file = open(f"{name}.csv", "w") 
-    save_file.write("X,Y\n")
-    xs = []
-    ys = []
+    save_file.write("X,Y,C\n")
     r = 0
     theta = 0
     while r < 2:
         while theta < (2 * math.pi):
             num = euler_to_comp(r, theta)
-            if test_mandelbrot(num):
-                save_file.write(f"{num.real},{num.im}\n")
-                xs.append(num.real)
-                ys.append(num.im)
+            res = test_mandelbrot(num)
+            if res[0]:
+                save_file.write(f"{num.real},{num.im},{res[1]}\n")
                 if r == 0:
                     theta = 2 * math.pi
             theta += 0.005
@@ -218,11 +217,13 @@ def save_mandelbrot_to_file(name):
 
 # Graphs a fatou or mandelbrot set.
 def graph_fatou(name='Mandelbrot Set', color='red', xs = [], ys = []):
+    colors = []
     if len(xs) == 0:
         df = pd.read_csv(f'{name}.csv')
         xs = df["X"].to_list()
         ys = df["Y"].to_list()
-    plt.scatter(xs, ys, label=f"Points in the {name} Set", c=color, s=5)
+        colors = np.array(df["C"].to_list())
+    plt.scatter(xs, ys, label=f"Points in the {name} Set", c=colors, cmap='nipy_spectral', s=5)
     plt.title(f"Fatou Set: {name}")
     plt.tight_layout()
     plt.legend()
@@ -243,8 +244,5 @@ save_fatou_to_file(z_val.str_out())
 '''
 
 z_val = Complex_Number(-1, 0)
-
-while z_val.real <= 0.1:
-    save_fatou_to_file(z_val.str_out())
-    graph_fatou(z_val.str_out(), 'green')
-    z_val.real += 0.1
+save_fatou_to_file(z_val.str_out())
+graph_fatou(z_val.str_out(), 'black')
