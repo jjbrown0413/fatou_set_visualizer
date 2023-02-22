@@ -1,8 +1,5 @@
 # Fatou Set Visualizer
-
-![-0 63 + 0 44i Set](https://user-images.githubusercontent.com/28418992/159311341-734b0d46-ab1f-42d1-8a40-9d31e90cfdf3.png)
-
-![ColoredMandelbrotSet Set](https://user-images.githubusercontent.com/28418992/159369006-1efac2d1-1471-4d96-91ab-60ad983327f6.png)
+![brown_The Many Faces of f(z) = z^2 + c](https://user-images.githubusercontent.com/28418992/220789620-85e759bc-30d3-442f-9cf1-5c95f60a2036.jpg)
 
 **NOTE: Please look at the 'set_images' folder for images of the Fatou sets!**
 
